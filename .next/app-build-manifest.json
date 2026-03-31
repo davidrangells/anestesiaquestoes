@@ -12,7 +12,7 @@
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-e194a40e9c60e120.js",
-      "static/css/373ec151d14f262b.css",
+      "static/css/22a7787a61ef725e.css",
       "static/chunks/app/layout-796e56f8f825f24b.js"
     ],
     "/page": [
@@ -22,19 +22,19 @@
       "static/chunks/main-app-e194a40e9c60e120.js",
       "static/chunks/app/page-878374b63328e5b3.js"
     ],
+    "/checkout/boas-vindas/page": [
+      "static/chunks/webpack-23a1610e8e78c69a.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-38b49df12a94ee57.js",
+      "static/chunks/main-app-e194a40e9c60e120.js",
+      "static/chunks/app/checkout/boas-vindas/page-2e183fa0b4790c22.js"
+    ],
     "/checkout/processando/page": [
       "static/chunks/webpack-23a1610e8e78c69a.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-e194a40e9c60e120.js",
       "static/chunks/app/checkout/processando/page-2e183fa0b4790c22.js"
-    ],
-    "/termos-de-uso/page": [
-      "static/chunks/webpack-23a1610e8e78c69a.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-38b49df12a94ee57.js",
-      "static/chunks/main-app-e194a40e9c60e120.js",
-      "static/chunks/app/termos-de-uso/page-2e183fa0b4790c22.js"
     ],
     "/checkout/sucesso/page": [
       "static/chunks/webpack-23a1610e8e78c69a.js",
@@ -43,19 +43,19 @@
       "static/chunks/main-app-e194a40e9c60e120.js",
       "static/chunks/app/checkout/sucesso/page-2e183fa0b4790c22.js"
     ],
-    "/checkout/boas-vindas/page": [
-      "static/chunks/webpack-23a1610e8e78c69a.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-38b49df12a94ee57.js",
-      "static/chunks/main-app-e194a40e9c60e120.js",
-      "static/chunks/app/checkout/boas-vindas/page-2e183fa0b4790c22.js"
-    ],
     "/politica-de-privacidade/page": [
       "static/chunks/webpack-23a1610e8e78c69a.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-38b49df12a94ee57.js",
       "static/chunks/main-app-e194a40e9c60e120.js",
       "static/chunks/app/politica-de-privacidade/page-2e183fa0b4790c22.js"
+    ],
+    "/termos-de-uso/page": [
+      "static/chunks/webpack-23a1610e8e78c69a.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-38b49df12a94ee57.js",
+      "static/chunks/main-app-e194a40e9c60e120.js",
+      "static/chunks/app/termos-de-uso/page-2e183fa0b4790c22.js"
     ]
   }
 }
