@@ -1,9 +1,9 @@
 {
   "/_not-found/page": "/_not-found",
   "/page": "/",
-  "/checkout/sucesso/page": "/checkout/sucesso",
+  "/termos-de-uso/page": "/termos-de-uso",
   "/checkout/boas-vindas/page": "/checkout/boas-vindas",
+  "/checkout/sucesso/page": "/checkout/sucesso",
   "/politica-de-privacidade/page": "/politica-de-privacidade",
-  "/checkout/processando/page": "/checkout/processando",
-  "/termos-de-uso/page": "/termos-de-uso"
+  "/checkout/processando/page": "/checkout/processando"
 }

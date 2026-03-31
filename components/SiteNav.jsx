@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const navLinks = [
   { label: "Início", href: "#inicio" },
   { label: "Benefícios", href: "#beneficios" },
@@ -7,6 +11,16 @@ const navLinks = [
 ];
 
 export default function SiteNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function handleToggleMenu() {
+    setMenuOpen((current) => !current);
+  }
+
+  function handleCloseMenu() {
+    setMenuOpen(false);
+  }
+
   return (
     <header className="site-header" id="inicio">
       <div className="container nav-wrapper">
@@ -38,6 +52,53 @@ export default function SiteNav() {
           >
             Assinar
           </a>
+        </div>
+
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          onClick={handleToggleMenu}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <div
+        id="mobile-navigation"
+        className={`mobile-menu${menuOpen ? " is-open" : ""}`}
+      >
+        <div className="container mobile-menu-inner">
+          <nav className="mobile-nav-links" aria-label="Navegação principal mobile">
+            {navLinks.map((item) => (
+              <a key={item.href} href={item.href} onClick={handleCloseMenu}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mobile-nav-ctas">
+            <a
+              href="https://anestesia-questoes-aluno.vercel.app/aluno/entrar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost btn-sm"
+              onClick={handleCloseMenu}
+            >
+              Entrar
+            </a>
+            <a
+              href="#planos"
+              className="btn btn-primary btn-sm"
+              onClick={handleCloseMenu}
+            >
+              Assinar
+            </a>
+          </div>
         </div>
       </div>
     </header>

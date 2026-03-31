@@ -102,6 +102,35 @@ a {
   gap: 0.5rem;
 }
 
+.nav-toggle,
+.mobile-menu {
+  display: none;
+}
+
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(151, 180, 219, 0.34);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+}
+
+.nav-toggle span + span {
+  margin-top: 4px;
+}
+
 .btn {
   border: 1px solid transparent;
   text-decoration: none;
@@ -404,6 +433,10 @@ h1 span {
   padding: 1.2rem;
 }
 
+.plan-card .btn {
+  margin-top: 1rem;
+}
+
 .plan-label {
   margin: 0;
   font-family: var(--font-display), sans-serif;
@@ -679,13 +712,8 @@ h1 span {
     grid-template-columns: 1fr;
   }
 
-  .nav-links {
-    order: 3;
-    width: 100%;
-  }
-
-  .nav-ctas {
-    margin-left: auto;
+  .nav-wrapper {
+    flex-wrap: nowrap;
   }
 
   .hero-section {
@@ -704,6 +732,49 @@ h1 span {
 
   .nav-wrapper {
     min-height: 72px;
+  }
+
+  .nav-links,
+  .nav-ctas {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .mobile-menu {
+    border-top: 1px solid rgba(117, 156, 201, 0.2);
+    background: rgba(6, 18, 38, 0.96);
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+
+  .mobile-menu-inner {
+    padding: 0.85rem 0 1rem;
+  }
+
+  .mobile-nav-links {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .mobile-nav-links a {
+    padding: 0.8rem 0;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(117, 156, 201, 0.14);
+  }
+
+  .mobile-nav-ctas {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1rem;
+    padding-top: 0.3rem;
   }
 
   .brand span {
