@@ -141,7 +141,7 @@ export default function HomePage() {
 
         <section className="section" id="dor">
           <div className="container">
-            <p className="section-kicker">Bloco de dor</p>
+            <p className="section-kicker">Diagnóstico</p>
             <h2>Se preparar sem método custa tempo, confiança e desempenho</h2>
             <div className="pain-grid">
               {painPoints.map((item) => (
@@ -156,7 +156,7 @@ export default function HomePage() {
         <section className="section section-soft" id="solucao">
           <div className="container solution-grid">
             <div>
-              <p className="section-kicker">Bloco de solução</p>
+              <p className="section-kicker">Solução Estratégica</p>
               <h2>Uma plataforma única para transformar estudo em aprovação</h2>
               <p className="section-text">
                 O Anestesia Questões organiza sua preparação em um fluxo claro: você filtra o que importa, treina com intenção e acompanha dados reais para corrigir lacunas antes da prova.
@@ -164,7 +164,7 @@ export default function HomePage() {
               <p className="section-text">
                 Em vez de estudar de forma fragmentada, você segue uma estratégia mensurável e consistente até o dia do exame.
               </p>
-              <a className="btn btn-primary" href="#planos">
+              <a className="btn btn-primary solution-cta" href="#planos">
                 Quero Estudar com Estratégia
               </a>
             </div>

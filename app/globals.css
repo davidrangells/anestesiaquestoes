@@ -274,6 +274,10 @@ h1 span {
   max-width: 64ch;
 }
 
+.solution-cta {
+  margin-top: 1rem;
+}
+
 .pain-grid,
 .benefit-grid,
 .stats-grid,
@@ -496,12 +500,46 @@ h1 span {
 .footer-links {
   display: flex;
   gap: 0.9rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
+}
+
+.footer-social {
+  margin-top: 0.72rem;
+  display: flex;
+  gap: 0.52rem;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(154, 190, 232, 0.34);
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.18s ease, border-color 0.2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(41, 208, 168, 0.58);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #d7e7ff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .status-shell {
@@ -582,6 +620,53 @@ h1 span {
   color: var(--muted);
 }
 
+.legal-page {
+  padding: 3.5rem 0 2.5rem;
+}
+
+.legal-shell h1 {
+  margin-top: 0.7rem;
+  max-width: none;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.legal-updated {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.legal-block {
+  margin-top: 1rem;
+  padding: 1.05rem;
+  border-radius: 14px;
+  border: 1px solid rgba(142, 177, 220, 0.34);
+  background: linear-gradient(170deg, rgba(18, 40, 68, 0.82), rgba(11, 24, 43, 0.9));
+}
+
+.legal-block h2 {
+  font-size: 1.15rem;
+}
+
+.legal-block p {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.legal-block ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.42rem;
+  line-height: 1.65;
+}
+
+.legal-block a {
+  color: #9fe8da;
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .solution-grid,
@@ -605,6 +690,10 @@ h1 span {
 
   .hero-section {
     padding-top: 3.1rem;
+  }
+
+  .legal-page {
+    padding-top: 2.9rem;
   }
 }
 

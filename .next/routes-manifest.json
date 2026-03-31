@@ -49,6 +49,18 @@
       "regex": "^/checkout/sucesso(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/checkout/sucesso(?:/)?$"
+    },
+    {
+      "page": "/politica-de-privacidade",
+      "regex": "^/politica\\-de\\-privacidade(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/politica\\-de\\-privacidade(?:/)?$"
+    },
+    {
+      "page": "/termos-de-uso",
+      "regex": "^/termos\\-de\\-uso(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/termos\\-de\\-uso(?:/)?$"
     }
   ],
   "dataRoutes": [],
