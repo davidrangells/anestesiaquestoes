@@ -1,6 +1,8 @@
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
 
+const checkoutUrl = "https://chk.eduzz.com/2219590";
+
 const painPoints = [
   "Você estuda muito, mas sem saber com precisão o que mais cai em TEA, TSA e Residência.",
   "Falta um banco realmente organizado para revisar por tema, prova e nível de dificuldade.",
@@ -113,7 +115,7 @@ export default function HomePage() {
               </div>
 
               <div className="cta-row">
-                <a className="btn btn-primary" href="#planos">
+                <a className="btn btn-primary" href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                   Assinar e Começar Agora
                 </a>
                 <a className="btn btn-ghost" href="#como-funciona">
@@ -164,7 +166,7 @@ export default function HomePage() {
               <p className="section-text">
                 Em vez de estudar de forma fragmentada, você segue uma estratégia mensurável e consistente até o dia do exame.
               </p>
-              <a className="btn btn-primary solution-cta" href="#planos">
+              <a className="btn btn-primary solution-cta" href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                 Quero Estudar com Estratégia
               </a>
             </div>
@@ -288,7 +290,7 @@ export default function HomePage() {
                   <li>12 meses de acesso + garantia de 7 dias</li>
                 </ul>
                 <a
-                  href="https://chk.eduzz.com/1717249"
+                  href={checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline btn-block"
@@ -309,7 +311,7 @@ export default function HomePage() {
                   <li>12 meses de acesso + garantia de 7 dias</li>
                 </ul>
                 <a
-                  href="https://chk.eduzz.com/1717250"
+                  href={checkoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-block"
@@ -347,7 +349,7 @@ export default function HomePage() {
               Se você quer chegar em TEA, TSA ou Residência com mais confiança, direção e consistência, o melhor momento para estruturar sua preparação é agora.
             </p>
             <div className="cta-row cta-center">
-              <a className="btn btn-primary" href="https://chk.eduzz.com/1717250" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-primary" href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                 Quero Assinar Agora
               </a>
               <a className="btn btn-ghost" href="https://wa.me/5515991008159" target="_blank" rel="noopener noreferrer">

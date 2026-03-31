@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const checkoutUrl = "https://chk.eduzz.com/2219590";
+
 const navLinks = [
   { label: "Início", href: "#inicio" },
   { label: "Benefícios", href: "#beneficios" },
@@ -47,7 +49,9 @@ export default function SiteNav() {
             Entrar
           </a>
           <a
-            href="#planos"
+            href={checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary btn-sm"
           >
             Assinar
@@ -92,7 +96,9 @@ export default function SiteNav() {
               Entrar
             </a>
             <a
-              href="#planos"
+              href={checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary btn-sm"
               onClick={handleCloseMenu}
             >
