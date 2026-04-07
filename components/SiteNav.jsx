@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-const checkoutUrl = "https://chk.eduzz.com/2219590";
-
 const navLinks = [
   { label: "Início", href: "#inicio" },
   { label: "Benefícios", href: "#beneficios" },
@@ -49,10 +47,10 @@ export default function SiteNav() {
             Entrar
           </a>
           <a
-            href={checkoutUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             className="btn btn-primary btn-sm"
+            aria-disabled="true"
+            onClick={(event) => event.preventDefault()}
           >
             Assinar
           </a>
@@ -96,11 +94,13 @@ export default function SiteNav() {
               Entrar
             </a>
             <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="btn btn-primary btn-sm"
-              onClick={handleCloseMenu}
+              aria-disabled="true"
+              onClick={(event) => {
+                event.preventDefault();
+                handleCloseMenu();
+              }}
             >
               Assinar
             </a>
