@@ -19,6 +19,10 @@ export const metadata = {
   description:
     "Plataforma premium de questões e simulados para anestesiologistas e residentes que buscam performance real em TEA, TSA e Residência.",
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/assets/logo-icon.png",
+    apple: "/assets/logo-icon.png"
+  },
   openGraph: {
     title: "Anestesia Questões | Plataforma para TEA, TSA e Residência",
     description:

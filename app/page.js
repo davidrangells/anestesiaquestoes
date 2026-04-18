@@ -113,7 +113,7 @@ const plans = [
     id: "me-tea",
     label: "Plano ME/TEA",
     volume: "+1.600 questões",
-    price: "R$ 197",
+    price: "R$ 1.048",
     period: "/ano",
     features: [
       "Foco em ME1, ME2, ME3 e TEA",
@@ -131,7 +131,7 @@ const plans = [
     id: "tsa",
     label: "Plano TSA",
     volume: "+2.500 questões",
-    price: "R$ 297",
+    price: "R$ 1.398",
     period: "/ano",
     badge: "Melhor Escolha para Aprovação Completa",
     features: [
