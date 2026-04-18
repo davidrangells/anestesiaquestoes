@@ -6,8 +6,8 @@
   --border: #33557f;
   --text: #f4f8ff;
   --muted: #b2c7e7;
-  --primary: #29d0a8;
-  --primary-strong: #16b995;
+  --primary: #00dba8;
+  --primary-strong: #00c090;
   --warning: #f8b84c;
   --container: 1160px;
   --radius-lg: 22px;
@@ -488,6 +488,25 @@ h1 span {
 .faq-item summary {
   cursor: pointer;
   font-weight: 700;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.22s ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
 }
 
 .faq-item p {
@@ -699,6 +718,348 @@ h1 span {
   color: #9fe8da;
 }
 
+/* ── Benefit icons ─────────────────────── */
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 219, 168, 0.1);
+  border: 1px solid rgba(0, 219, 168, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── Testimonial avatars ────────────────── */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.testimonial-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0, 219, 168, 0.28), rgba(59, 122, 204, 0.28));
+  border: 1px solid rgba(0, 219, 168, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #9ff2de;
+  flex-shrink: 0;
+  font-family: var(--font-display), sans-serif;
+}
+
+/* ── Comparison section ─────────────────── */
+.diff-card-negative {
+  border-color: rgba(220, 80, 80, 0.28);
+  background: linear-gradient(170deg, rgba(38, 14, 14, 0.9), rgba(18, 8, 8, 0.92));
+}
+
+.diff-card-negative h3 {
+  color: var(--muted);
+}
+
+.diff-card-negative li {
+  list-style: none;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.diff-card-negative li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: rgba(220, 80, 80, 0.7);
+  font-weight: 700;
+}
+
+.diff-card-positive {
+  border-color: rgba(0, 219, 168, 0.55);
+  background: linear-gradient(170deg, rgba(10, 40, 30, 0.95), rgba(6, 22, 16, 0.95));
+  box-shadow: 0 8px 32px rgba(0, 192, 144, 0.18);
+}
+
+.diff-card-positive h3 {
+  color: var(--primary);
+}
+
+.diff-card-positive li {
+  list-style: none;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.diff-card-positive li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.diff-grid ul {
+  padding-left: 0;
+}
+
+/* ── Urgency note ───────────────────────── */
+.urgency-note {
+  margin-top: 1.1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  background: rgba(0, 219, 168, 0.07);
+  border: 1px solid rgba(0, 219, 168, 0.2);
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* ── Plan price ─────────────────────────── */
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0.55rem 0 0.15rem;
+}
+
+.plan-price strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: 2rem;
+  color: var(--text);
+  line-height: 1;
+}
+
+.plan-price span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ── Product mockup ─────────────────────── */
+.mockup-shell {
+  margin-top: 1.8rem;
+  border: 1px solid rgba(142, 177, 220, 0.38);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(8, 18, 36, 0.95);
+  box-shadow: var(--shadow);
+}
+
+.mockup-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  background: rgba(5, 13, 28, 0.98);
+  border-bottom: 1px solid rgba(142, 177, 220, 0.18);
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.mockup-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.mockup-dots span:first-child  { background: rgba(255, 95, 86, 0.7); }
+.mockup-dots span:nth-child(2) { background: rgba(255, 189, 46, 0.7); }
+.mockup-dots span:nth-child(3) { background: rgba(39, 201, 63, 0.7); }
+
+.mockup-tabs {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.mockup-tab {
+  padding: 0.26rem 0.72rem;
+  border-radius: 7px;
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.mockup-tab.active {
+  background: rgba(0, 219, 168, 0.14);
+  color: var(--primary);
+}
+
+.mockup-body {
+  display: grid;
+  grid-template-columns: 195px 1fr;
+  min-height: 340px;
+}
+
+.mockup-sidebar {
+  padding: 1rem;
+  border-right: 1px solid rgba(142, 177, 220, 0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 0.36rem;
+}
+
+.mockup-label {
+  margin: 0.55rem 0 0.15rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.mockup-label:first-child { margin-top: 0; }
+
+.mockup-filter {
+  padding: 0.36rem 0.6rem;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.mockup-filter.active {
+  background: rgba(0, 219, 168, 0.13);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.mockup-divider {
+  border: none;
+  border-top: 1px solid rgba(142, 177, 220, 0.13);
+  margin: 0.3rem 0;
+}
+
+.mockup-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.18rem 0;
+}
+
+.mockup-stat-row strong { color: var(--text); }
+
+.mockup-progress-bar {
+  height: 5px;
+  background: rgba(154, 190, 232, 0.13);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.mockup-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+  border-radius: 999px;
+}
+
+.mockup-main {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.mockup-question-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mockup-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.24rem 0.58rem;
+  border-radius: 6px;
+  background: rgba(248, 184, 76, 0.13);
+  border: 1px solid rgba(248, 184, 76, 0.28);
+  color: #fdd897;
+}
+
+.mockup-qnum {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.mockup-question {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.mockup-options {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.mockup-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.52rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  border: 1px solid rgba(142, 177, 220, 0.18);
+  background: rgba(16, 36, 62, 0.5);
+}
+
+.mockup-option.selected {
+  border-color: rgba(248, 184, 76, 0.38);
+  background: rgba(248, 184, 76, 0.07);
+  color: var(--text);
+}
+
+.mockup-option.correct {
+  border-color: rgba(0, 219, 168, 0.48);
+  background: rgba(0, 219, 168, 0.09);
+  color: var(--primary);
+}
+
+.mockup-option-letter {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(154, 190, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.74rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.mockup-option.correct .mockup-option-letter {
+  background: rgba(0, 219, 168, 0.18);
+}
+
+.mockup-explanation {
+  padding: 0.68rem 0.85rem;
+  border-radius: 9px;
+  background: rgba(0, 219, 168, 0.06);
+  border: 1px solid rgba(0, 219, 168, 0.18);
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .solution-grid,
@@ -721,6 +1082,25 @@ h1 span {
 
   .legal-page {
     padding-top: 2.9rem;
+  }
+
+  .mockup-body {
+    grid-template-columns: 1fr;
+  }
+
+  .mockup-sidebar {
+    border-right: none;
+    border-bottom: 1px solid rgba(142, 177, 220, 0.13);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mockup-label,
+  .mockup-divider,
+  .mockup-progress-bar {
+    display: none;
   }
 }
 

@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://anestesia-questoes-aluno.vercel.app";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -25,7 +28,7 @@ export default function SiteNav() {
     <header className="site-header" id="inicio">
       <div className="container nav-wrapper">
         <a href="#inicio" className="brand" aria-label="Anestesia Questões">
-          <img src="/assets/logo-icon.png" alt="" width="38" height="38" />
+          <Image src="/assets/logo-icon.png" alt="" width={38} height={38} priority />
           <span>Anestesia Questões</span>
         </a>
 
@@ -39,19 +42,14 @@ export default function SiteNav() {
 
         <div className="nav-ctas">
           <a
-            href="https://anestesia-questoes-aluno.vercel.app/aluno/entrar"
+            href={`${appUrl}/aluno/entrar`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-ghost btn-sm"
           >
             Entrar
           </a>
-          <a
-            href="#"
-            className="btn btn-primary btn-sm"
-            aria-disabled="true"
-            onClick={(event) => event.preventDefault()}
-          >
+          <a href="#planos" className="btn btn-primary btn-sm">
             Assinar
           </a>
         </div>
@@ -85,7 +83,7 @@ export default function SiteNav() {
 
           <div className="mobile-nav-ctas">
             <a
-              href="https://anestesia-questoes-aluno.vercel.app/aluno/entrar"
+              href={`${appUrl}/aluno/entrar`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost btn-sm"
@@ -93,15 +91,7 @@ export default function SiteNav() {
             >
               Entrar
             </a>
-            <a
-              href="#"
-              className="btn btn-primary btn-sm"
-              aria-disabled="true"
-              onClick={(event) => {
-                event.preventDefault();
-                handleCloseMenu();
-              }}
-            >
+            <a href="#planos" className="btn btn-primary btn-sm" onClick={handleCloseMenu}>
               Assinar
             </a>
           </div>

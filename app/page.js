@@ -1,12 +1,29 @@
 import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
 
+const whatsappBase = process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/5515991008159";
+
 const painPoints = [
   "Você estuda muito, mas sem saber com precisão o que mais cai em TEA, TSA e Residência.",
   "Falta um banco realmente organizado para revisar por tema, prova e nível de dificuldade.",
   "A rotina corrida da residência reduz seu tempo e aumenta a insegurança na reta final.",
   "Sem métricas claras, fica difícil corrigir lacunas e evoluir com consistência."
 ];
+
+const benefitIcons = {
+  "Banco de questões orientado por prova":
+    "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
+  "Simulados personalizados":
+    "M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664zM21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  "Comentários e explicações":
+    "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+  "Dashboard de desempenho":
+    "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  "Estudo no computador e celular":
+    "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  "Plataforma nova, rápida e organizada":
+    "M13 10V3L4 14h7v7l9-11h-7z"
+};
 
 const benefits = [
   {
@@ -50,6 +67,7 @@ const steps = [
 
 const differentials = [
   {
+    type: "negative",
     title: "Estudo solto",
     points: [
       "Conteúdo disperso em várias fontes",
@@ -58,12 +76,75 @@ const differentials = [
     ]
   },
   {
+    type: "positive",
     title: "Anestesia Questões",
     points: [
       "Banco estruturado para provas reais",
       "Métricas claras para decisão objetiva",
       "Fluxo de estudo inteligente e contínuo"
     ]
+  }
+];
+
+const testimonials = [
+  {
+    quote:
+      "Passei a estudar com direção. O filtro por tema e os simulados mudaram meu ritmo de preparação.",
+    author: "Maria Eduarda, R2",
+    initials: "ME"
+  },
+  {
+    quote:
+      "A experiência é rápida, organizada e objetiva. Hoje eu reviso com base em dados, não em achismo.",
+    author: "Guilherme S., preparação para TEA",
+    initials: "GS"
+  },
+  {
+    quote:
+      "Finalmente encontrei uma plataforma focada na realidade da nossa prova, sem conteúdo solto.",
+    author: "Michelly Pires, candidata ao TSA",
+    initials: "MP"
+  }
+];
+
+// TODO: atualize price com os valores reais dos planos antes de publicar
+const plans = [
+  {
+    id: "me-tea",
+    label: "Plano ME/TEA",
+    volume: "+1.600 questões",
+    price: "R$ 197",
+    period: "/ano",
+    features: [
+      "Foco em ME1, ME2, ME3 e TEA",
+      "Filtros por tema e nível",
+      "Simulados e comentários explicativos",
+      "Dashboard de desempenho",
+      "12 meses de acesso + garantia de 7 dias"
+    ],
+    btnLabel: "Assinar ME/TEA",
+    btnClass: "btn-outline btn-block",
+    whatsappMsg: "Olá! Quero assinar o Plano ME/TEA do Anestesia Questões.",
+    featured: false
+  },
+  {
+    id: "tsa",
+    label: "Plano TSA",
+    volume: "+2.500 questões",
+    price: "R$ 297",
+    period: "/ano",
+    badge: "Melhor Escolha para Aprovação Completa",
+    features: [
+      "Questões de TSA, TEA e residência (ME1, ME2, ME3)",
+      "Cobertura ampliada para preparação avançada",
+      "Simulados personalizados + revisão inteligente",
+      "Análise de desempenho para ajustes finos",
+      "12 meses de acesso + garantia de 7 dias"
+    ],
+    btnLabel: "Assinar TSA",
+    btnClass: "btn-primary btn-block",
+    whatsappMsg: "Olá! Quero assinar o Plano TSA do Anestesia Questões.",
+    featured: true
   }
 ];
 
@@ -95,15 +176,18 @@ export default function HomePage() {
     <>
       <SiteNav />
       <main>
+        {/* Hero */}
         <section className="hero-section">
           <div className="container hero-grid">
             <div>
               <p className="eyebrow">Plataforma Premium de Questões para Anestesiologia</p>
               <h1>
-                A preparação mais estratégica para <span>TEA, TSA e Residência</span>
+                A preparação mais estratégica para{" "}
+                <span>TEA, TSA e Residência</span>
               </h1>
               <p className="lead">
-                Banco completo de questões, simulados personalizados e métricas de desempenho para médicos e residentes que querem estudar com direção e performar no nível da prova.
+                Banco completo de questões, simulados personalizados e métricas de desempenho
+                para médicos e residentes que querem estudar com direção e performar no nível da prova.
               </p>
 
               <div className="audience-tags" aria-label="Perfis atendidos">
@@ -113,9 +197,9 @@ export default function HomePage() {
               </div>
 
               <div className="cta-row">
-                <span className="btn btn-primary" aria-disabled="true">
+                <a className="btn btn-primary" href="#planos">
                   Assinar e Começar Agora
-                </span>
+                </a>
                 <a className="btn btn-ghost" href="#como-funciona">
                   Ver Como Funciona
                 </a>
@@ -139,6 +223,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Dor */}
         <section className="section" id="dor">
           <div className="container">
             <p className="section-kicker">Diagnóstico</p>
@@ -153,20 +238,23 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Solução */}
         <section className="section section-soft" id="solucao">
           <div className="container solution-grid">
             <div>
               <p className="section-kicker">Solução Estratégica</p>
               <h2>Uma plataforma única para transformar estudo em aprovação</h2>
               <p className="section-text">
-                O Anestesia Questões organiza sua preparação em um fluxo claro: você filtra o que importa, treina com intenção e acompanha dados reais para corrigir lacunas antes da prova.
+                O Anestesia Questões organiza sua preparação em um fluxo claro: você filtra o que
+                importa, treina com intenção e acompanha dados reais para corrigir lacunas antes da prova.
               </p>
               <p className="section-text">
-                Em vez de estudar de forma fragmentada, você segue uma estratégia mensurável e consistente até o dia do exame.
+                Em vez de estudar de forma fragmentada, você segue uma estratégia mensurável e
+                consistente até o dia do exame.
               </p>
-              <span className="btn btn-primary solution-cta" aria-disabled="true">
+              <a className="btn btn-primary solution-cta" href="#planos">
                 Quero Estudar com Estratégia
-              </span>
+              </a>
             </div>
             <div className="solution-proof" aria-label="Provas de valor">
               <p><strong>Foco real:</strong> TEA, TSA e Residência</p>
@@ -177,13 +265,28 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Benefícios */}
         <section className="section" id="beneficios">
           <div className="container">
             <p className="section-kicker">Principais benefícios</p>
             <h2>Clareza para estudar melhor e evoluir mais rápido</h2>
             <div className="benefit-grid">
               {benefits.map((item) => (
-                <article key={item.title} className="card">
+                <article key={item.title} className="card benefit-card">
+                  <div className="benefit-icon" aria-hidden="true">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d={benefitIcons[item.title]} />
+                    </svg>
+                  </div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </article>
@@ -192,6 +295,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Como Funciona */}
         <section className="section section-soft" id="como-funciona">
           <div className="container">
             <p className="section-kicker">Como funciona</p>
@@ -207,7 +311,78 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section" id="prova-social">
+        {/* Mockup da plataforma */}
+        <section className="section" id="plataforma">
+          <div className="container">
+            <p className="section-kicker">A plataforma</p>
+            <h2>Interface pensada para quem estuda com objetivo</h2>
+            <p className="section-text">
+              Navegação rápida, filtros por prova e tema, simulados cronometrados e dashboard que
+              mostra exatamente onde você está na preparação.
+            </p>
+            <div className="mockup-shell" aria-label="Preview da interface da plataforma">
+              <div className="mockup-header">
+                <div className="mockup-dots">
+                  <span /><span /><span />
+                </div>
+                <div className="mockup-tabs">
+                  <span className="mockup-tab active">TEA</span>
+                  <span className="mockup-tab">TSA</span>
+                  <span className="mockup-tab">Residência</span>
+                </div>
+              </div>
+              <div className="mockup-body">
+                <aside className="mockup-sidebar">
+                  <p className="mockup-label">Filtros</p>
+                  <div className="mockup-filter active">Farmacologia</div>
+                  <div className="mockup-filter">Anestesia Geral</div>
+                  <div className="mockup-filter">Bloqueios</div>
+                  <div className="mockup-filter">Emergências</div>
+                  <hr className="mockup-divider" />
+                  <p className="mockup-label">Progresso</p>
+                  <div className="mockup-stat-row">
+                    <span>Acertos</span><strong>78%</strong>
+                  </div>
+                  <div className="mockup-stat-row">
+                    <span>Questões</span><strong>142</strong>
+                  </div>
+                  <div className="mockup-progress-bar">
+                    <div className="mockup-progress-fill" style={{ width: "78%" }} />
+                  </div>
+                </aside>
+                <div className="mockup-main">
+                  <div className="mockup-question-meta">
+                    <span className="mockup-badge">TEA 2023 · Farmacologia</span>
+                    <span className="mockup-qnum">Questão 4 / 10</span>
+                  </div>
+                  <p className="mockup-question">
+                    Qual dos agentes halogenados apresenta menor coeficiente de solubilidade sangue-gás,
+                    resultando em indução e recuperação mais rápidas?
+                  </p>
+                  <div className="mockup-options">
+                    {["Isoflurano", "Sevoflurano", "Desflurano", "Halotano"].map((opt, i) => (
+                      <div
+                        key={opt}
+                        className={`mockup-option${i === 2 ? " correct" : i === 1 ? " selected" : ""}`}
+                      >
+                        <span className="mockup-option-letter">{String.fromCharCode(65 + i)}</span>
+                        {opt}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mockup-explanation">
+                    <strong>Comentário:</strong> O desflurano possui o menor coeficiente de solubilidade
+                    sangue-gás (0,42), o que resulta em indução e recuperação mais rápidas comparado
+                    aos demais halogenados.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Prova Social */}
+        <section className="section section-soft" id="prova-social">
           <div className="container">
             <p className="section-kicker">Prova social e autoridade</p>
             <h2>Credibilidade para quem leva aprovação a sério</h2>
@@ -227,35 +402,27 @@ export default function HomePage() {
             </div>
 
             <div className="testimonials-grid">
-              <article className="card testimonial-card">
-                <p>
-                  "Passei a estudar com direção. O filtro por tema e os simulados mudaram meu ritmo de preparação."
-                </p>
-                <strong>Maria Eduarda, R2</strong>
-              </article>
-              <article className="card testimonial-card">
-                <p>
-                  "A experiência é rápida, organizada e objetiva. Hoje eu reviso com base em dados, não em achismo."
-                </p>
-                <strong>Guilherme S., preparação para TEA</strong>
-              </article>
-              <article className="card testimonial-card">
-                <p>
-                  "Finalmente encontrei uma plataforma focada na realidade da nossa prova, sem conteúdo solto."
-                </p>
-                <strong>Michelly Pires, candidata ao TSA</strong>
-              </article>
+              {testimonials.map((item) => (
+                <article key={item.author} className="card testimonial-card">
+                  <p>"{item.quote}"</p>
+                  <div className="testimonial-author">
+                    <div className="testimonial-avatar" aria-hidden="true">{item.initials}</div>
+                    <strong>{item.author}</strong>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="section section-soft" id="diferenciais">
+        {/* Diferenciais */}
+        <section className="section" id="diferenciais">
           <div className="container">
             <p className="section-kicker">Diferenciais</p>
             <h2>Por que o Anestesia Questões converte esforço em resultado</h2>
             <div className="diff-grid">
               {differentials.map((block) => (
-                <article key={block.title} className="card">
+                <article key={block.title} className={`card diff-card diff-card-${block.type}`}>
                   <h3>{block.title}</h3>
                   <ul>
                     {block.points.map((point) => (
@@ -268,7 +435,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section" id="planos">
+        {/* Planos */}
+        <section className="section section-soft" id="planos">
           <div className="container">
             <p className="section-kicker">Planos e oferta</p>
             <h2>Escolha o plano ideal para seu momento de carreira</h2>
@@ -276,43 +444,36 @@ export default function HomePage() {
               Você assina com segurança via Eduzz, recebe acesso rápido e começa a estudar no mesmo dia.
             </p>
 
-            <div className="plans-grid">
-              <article className="card plan-card">
-                <p className="plan-label">Plano ME/TEA</p>
-                <p className="plan-volume">+1.600 questões</p>
-                <ul>
-                  <li>Foco em ME1, ME2, ME3 e TEA</li>
-                  <li>Filtros por tema e nível</li>
-                  <li>Simulados e comentários explicativos</li>
-                  <li>Dashboard de desempenho</li>
-                  <li>12 meses de acesso + garantia de 7 dias</li>
-                </ul>
-                <span
-                  className="btn btn-outline btn-block"
-                  aria-disabled="true"
-                >
-                  Assinar ME/TEA
-                </span>
-              </article>
+            <div className="urgency-note" role="note">
+              🔒 Acesso liberado em minutos após confirmação &nbsp;·&nbsp; Garantia de 7 dias sem risco &nbsp;·&nbsp; Cancele quando quiser
+            </div>
 
-              <article className="card plan-card featured">
-                <p className="plan-badge">Melhor Escolha para Aprovação Completa</p>
-                <p className="plan-label">Plano TSA</p>
-                <p className="plan-volume">+2.500 questões</p>
-                <ul>
-                  <li>Questões de TSA, TEA e residência (ME1, ME2, ME3)</li>
-                  <li>Cobertura ampliada para preparação avançada</li>
-                  <li>Simulados personalizados + revisão inteligente</li>
-                  <li>Análise de desempenho para ajustes finos</li>
-                  <li>12 meses de acesso + garantia de 7 dias</li>
-                </ul>
-                <span
-                  className="btn btn-primary btn-block"
-                  aria-disabled="true"
-                >
-                  Assinar TSA
-                </span>
-              </article>
+            <div className="plans-grid">
+              {plans.map((plan) => (
+                <article key={plan.id} className={`card plan-card${plan.featured ? " featured" : ""}`}>
+                  {plan.badge && <p className="plan-badge">{plan.badge}</p>}
+                  <p className="plan-label">{plan.label}</p>
+                  <p className="plan-volume">{plan.volume}</p>
+                  <div className="plan-price">
+                    <strong>{plan.price}</strong>
+                    <span>{plan.period}</span>
+                  </div>
+                  <ul>
+                    {plan.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                  {/* TODO: substitua o href pelo link do checkout Eduzz quando disponível */}
+                  <a
+                    href={`${whatsappBase}?text=${encodeURIComponent(plan.whatsappMsg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`btn ${plan.btnClass}`}
+                  >
+                    {plan.btnLabel}
+                  </a>
+                </article>
+              ))}
             </div>
 
             <p className="security-note">
@@ -321,6 +482,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* FAQ */}
         <section className="section section-soft" id="faq">
           <div className="container">
             <p className="section-kicker">FAQ</p>
@@ -328,7 +490,23 @@ export default function HomePage() {
             <div className="faq-list">
               {faqs.map((item) => (
                 <details key={item.q} className="faq-item">
-                  <summary>{item.q}</summary>
+                  <summary>
+                    <span>{item.q}</span>
+                    <svg
+                      className="faq-chevron"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </summary>
                   <p>{item.a}</p>
                 </details>
               ))}
@@ -336,17 +514,24 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* CTA Final */}
         <section className="section final-cta" id="fechamento">
           <div className="container">
             <h2>Seu próximo resultado começa com estratégia de estudo</h2>
             <p>
-              Se você quer chegar em TEA, TSA ou Residência com mais confiança, direção e consistência, o melhor momento para estruturar sua preparação é agora.
+              Se você quer chegar em TEA, TSA ou Residência com mais confiança, direção e
+              consistência, o melhor momento para estruturar sua preparação é agora.
             </p>
             <div className="cta-row cta-center">
-              <span className="btn btn-primary" aria-disabled="true">
+              <a className="btn btn-primary" href="#planos">
                 Quero Assinar Agora
-              </span>
-              <a className="btn btn-ghost" href="https://wa.me/5515991008159" target="_blank" rel="noopener noreferrer">
+              </a>
+              <a
+                className="btn btn-ghost"
+                href={whatsappBase}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Tirar Dúvidas no WhatsApp
               </a>
             </div>
